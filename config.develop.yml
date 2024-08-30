@@ -1,0 +1,59 @@
+http_app:
+  http_port: 8080
+  verbose: true
+  read_timeout: 30 #seconds
+  write_timeout: 30 #seconds
+  idle_timeout: 30 #seconds
+  pagination_limit: 20
+
+grpc_app:
+  grpc_port: 9090
+  max_concurrent_Streams: 100
+  max_connection_idle: 5 # in minutes // Similar to IdleTimeout
+  time: 2 # in hours // Frequency of pings sent to clients
+  timeout: 20 # in seconds
+  max_recv_msg_size: 4 # 4MB
+  max_send_msg_size: 4 # 4MB
+
+mongo_db:
+  name: "projectName"
+  host: "127.0.0.1"
+  port: 27017
+  username: "root"
+  password: "secret"
+  enable_ssl: false
+
+jwt:
+  token_expiration_time: 60 #minute
+  key: "secret_key"
+
+storage:
+  provider: s3
+  s3:
+    keyId: keyId
+    keySecret: secret
+    region: ap-southeast-1
+    bucket: some-bucket
+    timeout: 10
+    presignedUrlExpirationMins: 15
+
+sms:
+  provider: "BulkSmsBd"
+  bulk_sms_bd:
+    api_key: ""
+    sender_id: ""
+
+redis:
+  host: "127.0.0.1"
+  port: 6379
+  password: ""
+  prefix: projectName_
+  db: 0
+  worker_db: 1
+
+cors:
+  max_age: 600
+  origins:
+    - "https://domain.com"
+    - "https://*.domain.com"
+    - "http://localhost:3000"

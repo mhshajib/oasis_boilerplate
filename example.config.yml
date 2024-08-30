@@ -1,0 +1,52 @@
+app:
+  http_port: 9000
+  verbose: true
+  read_timeout: 30 #seconds
+  write_timeout: 30 #seconds
+  idle_timeout: 30 #seconds
+  pagination_limit: 20
+
+database:
+  name: "phoenix"
+  host: "mongodb"
+  port: 27017
+  username: "root"
+  password: "secret"
+
+jwt:
+  token_expiration_time: 60 #minute
+  key: "secret_key"
+
+location:
+  radius: 500
+
+socials:
+  facebook:
+    icon: "fa fa-facebook-f"
+    color: "#1877f2"
+  twitter:
+    icon: "fa fa-twitter"
+    color: "#1da1f2"
+  instagram:
+    icon: "fa fa-instagram"
+    color: "#c32aa3"
+  linkedin:
+    icon: "fa fa-linkedin-in"
+    color: "#0a66c2"
+  youtube:
+    icon: "fa fa-youtube"
+    color: "#ff0000"
+
+permissions:
+  admin:
+  - create_user
+  - update_user
+  - delete_user
+  - list_user
+  - get_user
+  - change_user_type
+  - change_phone_number
+  - approve_user
+  manger:
+  - list_offer
+  - get_offer

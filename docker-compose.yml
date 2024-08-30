@@ -1,0 +1,27 @@
+version: '3.7'
+networks:
+    basic:
+        driver: bridge
+services:
+    mongodb:
+        networks:
+            - basic
+        image: 'mongo:latest'
+        ports:
+            - '27017:27017'
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=root
+            - MONGO_INITDB_ROOT_PASSWORD=secret
+            - MONGO_INITDB_DATABASE=projectName
+        volumes:
+            - './storage/mongodb:/data/db'
+        container_name: projectName-mongo
+    redis:
+        networks:
+            - basic
+        image: 'redis:alpine'
+        ports:
+            - '6379:6379'
+        volumes:
+            - './storage/redis:/data'
+        container_name: projectName-redis
